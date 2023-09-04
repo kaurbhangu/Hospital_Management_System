@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body> -->
+    {%extends 'hospital.html'%}
+    {%block 'contant'%}
+    {%load static %}
+    <div class="container">
+          <h1 align="center">Patients</h1>
+    
+         <img src="{%static 'patient/images/patient.jpg' %} " class="rounded mx-auto d-block" width="30%" alt="image not found">
+         
+    </div>
+    <div>
+    <table class="table table-bordered" >
+        <thead>
+          <tr>
+            <!-- <th scope="col">Paient ID</th> -->
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+            <th scope="col">Disease</th>
+            <th scope=""col>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients%}
+          <tr>
+            <!-- take data from table -->
+            <!-- <th scope="row">{{patient.id}}</th> -->
+            <td>{{patient.first_name}}</td>
+            <td>{{patient.Last_name}}</td>
+            <td>{{patient.age}}</td>
+            <td>{{patient.email}}</td>
+            <td>{{patient.disease}}</td>
+            <td><a class="btn btn-danger" href="{% url 'patient:delete_patient' patient_id=patient.id%}">Delete</a>
+            <a class="btn btn-success" href="{% url 'patient:edit_patient' patient_id=patient.id%}">Edit</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        </table>
+            
+      <!-- <h3>{{patients}}</h3> -->
+    {%endblock 'contant'%}
+    
+        
+
+
+
+      <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+</body>
+</html> -->

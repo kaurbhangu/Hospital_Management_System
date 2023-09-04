@@ -1,0 +1,39 @@
+{% extends 'hospital.html' %}
+{% block 'contant' %}
+<form method="post">
+    {%csrf_token%}
+    <div class="col-auto">
+        <label for="inputPassword6" class="col-form-label">Username</label>
+        <input type=" text" class="form-control" id="exampleFormControlInput1" placeholder="name" name="username">
+        <span class="text-danger m-2">{{username_error}}</span>
+      </div>
+    <div class="col-auto">
+        <label for="inputPassword6" class="col-form-label">First Name</label>
+        <input type=" text" class="form-control" id="exampleFormControlInput1" placeholder="name" name="first_name">
+      </div>
+      <div class="col-auto">
+        <label for="inputPassword6" class="col-form-label">Last Name</label>
+        <input type=" text" class="form-control" id="exampleFormControlInput1" placeholder="name" name="last_name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email </label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email" name="email" >
+        <span class="text-danger m-2">{{email_error}}</span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Password </label>
+        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="password" name="password" >
+        <span class="text-danger m-2">{{password_error}}</span>
+       
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"> Confirm Password </label>
+        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="password" name="confirm_password" >
+       
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p>Have an account ?<a href="{% url 'patient:login' %}"></a></p>
+</form>
+
+{%endblock 'contant'%}
